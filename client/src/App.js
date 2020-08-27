@@ -8,7 +8,17 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Chat from "./pages/Chat";
+import Tables from "./pages/Tables";
+import QRCodes from "./pages/QRCodes";
+import Reviews from "./pages/Reviews";
+import Welcome from "./pages/Welcome";
+import CustomerChat from "./pages/CustomerChat";
+import CustomerReview from "./pages/CustomerReview";
+import ThankYou from "./pages/ThankYou";
+import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
@@ -29,6 +39,35 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            {/* TODO: Change to Protected Routes */}
+            <Route exact path="/chat">
+              <Chat />
+            </Route>
+            <Route exact path="/tables">
+              <Tables />
+            </Route>
+            <Route exact path="/qrcodes">
+              <QRCodes />
+            </Route>
+            <Route exact path="/reviews">
+              <Reviews />
+            </Route>
+
+            <Route exact path="/welcome">
+              <Welcome />
+            </Route>
+            <Route exact path="/customerchat">
+              <CustomerChat />
+            </Route>
+            <Route exact path="/customerreview">
+              <CustomerReview />
+            </Route>
+            <Route exact path="/thankyou">
+              <ThankYou />
+            </Route>
+            <Route path="/*">
+              <NoMatch />
+            </Route>
           </Switch>
         </div>
       </Router>
