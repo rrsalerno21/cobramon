@@ -12,7 +12,7 @@ module.exports = {
   // Resolves to an object with failure message or
   // token and user if login is successful.
   logUserIn: async (email, password) => {
-    const user = await db.User.findOne({ email });
+    const user = await db.Company.findOne({ email });
     if (!user) {
       return { success: false, message: "User not found" };
     }
