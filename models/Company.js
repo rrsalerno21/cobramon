@@ -38,7 +38,7 @@ const chatSchema = new Schema(
     message: {
       type: String
     }, 
-    sender: {
+    customer_id: {
       type: String
           }
     }, 
