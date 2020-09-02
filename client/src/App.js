@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Chat from "./components/Chat/Chat"; 
+import Join from "./components/Join/Join"; 
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            <Route exact path="/joinsession" exact component={Join} />
+            <Route exact path="/chat" exact component={Chat} />
           </Switch>
         </div>
       </Router>
