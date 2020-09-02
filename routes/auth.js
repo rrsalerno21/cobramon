@@ -17,7 +17,7 @@ router.post("/api/login", (req, res) => {
 });
 
 router.post("/api/signup", (req, res) => {
-  db.User.create(req.body)
+  db.Company.create(req.body)
     .then((data) => res.json(data))
     .catch((err) => res.status(400).json(err));
 });
