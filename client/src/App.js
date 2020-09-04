@@ -8,9 +8,9 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Chat from "./pages/Chat";
+// import Chat from "./pages/Chat/";
 import Tables from "./pages/Tables";
-import QRCodes from "./pages/QRCodes";
+import QRCodes from "./pages/QRCodes/";
 import Reviews from "./pages/Reviews";
 import Welcome from "./pages/Welcome";
 import CustomerChat from "./pages/CustomerChat";
@@ -18,10 +18,8 @@ import CustomerReview from "./pages/CustomerReview";
 import ThankYou from "./pages/ThankYou";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
-import Chat from "./components/Chat/Chat"; 
-import Join from "./components/Join/Join"; 
-
-
+import Chat from "./components/Chat/Chat";
+import Join from "./components/Join/Join";
 
 function App() {
   return (

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
-import { Form, InputGroup, ImageUpload } from "../components/SignupForm/ImageUpload";
+import ImageUpload from "../components/SignupForm/ImageUpload";
+import { Form, InputGroup } from "../components/LoginForm/";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -31,17 +32,17 @@ function Signup() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (formState.password !== formState.confirm) {
-      alert("password must match")
+      alert("password must match");
     } else {
-    API.signUpUser(formState.username, formState.email, formState.password)
-      .then((res) => {
-        // once the user has signed up
-        // send them to the login page
-        history.replace("/login");
-      })
-      .catch((err) => alert(err));
+      API.signUpUser(formState.username, formState.email, formState.password)
+        .then((res) => {
+          // once the user has signed up
+          // send them to the login page
+          history.replace("/login");
+        })
+        .catch((err) => alert(err));
+    }
   };
-};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -95,11 +96,7 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
-        <ImageUpload
-          id="logo"
-          labelText="Logo (Optional)"
-          name="logo"
-        />
+        <ImageUpload id="logo" labelText="Logo (Optional)" name="logo" />
         <button type="submit">Submit</button>
       </Form>
       <Link
