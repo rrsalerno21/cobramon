@@ -37,7 +37,7 @@ const SessionSchema = new Schema({
   requests: [RequestSchema],
 });
 
-const chatSchema = new Schema(
+const ChatSchema = new Schema(
   {
     message: {
       type: String,
@@ -127,6 +127,7 @@ const CompanySchema = new Schema({
   QR_codes: [String],
   tables: [TableSchema],
   reviews: [ReviewSchema],
+  chat: [ChatSchema],
   createdAt: {
     type: Date,
     default: Date.now,
@@ -160,7 +161,5 @@ CompanySchema.methods.verifyPassword = async function (plainTextPassword) {
 };
 
 const Company = mongoose.model("Company", CompanySchema);
-let Chat = mongoose.model("Chat", chatSchema);
 
 module.exports = Company;
-// module.exports = Chat;
