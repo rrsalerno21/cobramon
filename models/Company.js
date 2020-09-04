@@ -33,6 +33,19 @@ const SessionSchema = new Schema({
   requests: [RequestSchema],
 });
 
+const chatSchema = new Schema(
+  {
+    message: {
+      type: String
+    }, 
+    customer_id: {
+      type: String
+          }
+    }, 
+          {
+    timestamps: true
+  }); 
+
 const TableSchema = new Schema({
   table_id: {
     type: Number,
@@ -142,5 +155,7 @@ CompanySchema.methods.verifyPassword = async function (plainTextPassword) {
 };
 
 const Company = mongoose.model("Company", CompanySchema);
+let Chat = mongoose.model("Chat", chatSchema); 
 
 module.exports = Company;
+module.exports = Chat; 

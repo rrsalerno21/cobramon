@@ -99,7 +99,6 @@ function Signup() {
           id="logo"
           labelText="Logo (Optional)"
           name="logo"
-          
         />
         <button type="submit">Submit</button>
       </Form>
