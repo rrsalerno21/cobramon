@@ -48,13 +48,13 @@ function Signup() {
 
   return (
     <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
+      <h1>Sign Up</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
-          id="username"
-          labelText="Username"
-          placeholder="WinterIsComing"
-          name="username"
+          id="restaurantname"
+          labelText="Restaurant Name"
+          placeholder="Your Cafe"
+          name="restaurantname"
           type="text"
           onChange={handleChange}
         />
@@ -74,6 +74,28 @@ function Signup() {
           type="password"
           onChange={handleChange}
         />
+        <InputGroup
+          id="pwdconfirm"
+          labelText="Confirm Password"
+          placeholder="p@ssw0Rd!"
+          name="passwordconfirm"
+          type="passwordconfirm"
+          onChange={handleChange}
+        />
+        <InputGroup
+          id="tablecount"
+          labelText="Table Count"
+          placeholder="10"
+          name="tablecount"
+          type="text"
+          onChange={handleChange}
+        />
+        <InputGroup
+          id="logo"
+          labelText="Logo (Optional)"
+          name="logo"
+          type="file"
+        />
         <button type="submit">Submit</button>
       </Form>
       <Link
@@ -83,7 +105,7 @@ function Signup() {
         }}
         to="/login"
       >
-        Go to Login
+        Already a member? Login
       </Link>
     </div>
   );
