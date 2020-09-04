@@ -1,0 +1,30 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f8f8f8;
+  position: relative;
+  height: calc(100vh - 4rem);
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  border-bottom: .01rem solid #D3D3D3;
+}
+
+.sidebar a.active {
+  border-right: 0.3rem solid #f9dd70;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #f9dd70;
+  color: white;
+}
+
+.full-width { 
+  display: flex;
+}

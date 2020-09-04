@@ -61,7 +61,7 @@ function Login() {
         }}
         to="/signup"
       >
-        Go to Signup
+        Not registered? Create an Account
       </Link>
     </div>
   );
