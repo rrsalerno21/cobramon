@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
-import { Form, InputGroup } from "../components/LoginForm";
+import { Form, InputGroup, ImageUpload } from "../components/SignupForm/ImageUpload";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -17,6 +17,7 @@ function Signup() {
     username: "",
     email: "",
     password: "",
+    confirm: "",
   });
 
   const { isLoggedIn } = useAuth();
@@ -29,6 +30,9 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    if (formState.password !== formState.confirm) {
+      alert("password must match")
+    } else {
     API.signUpUser(formState.username, formState.email, formState.password)
       .then((res) => {
         // once the user has signed up
@@ -37,6 +41,7 @@ function Signup() {
       })
       .catch((err) => alert(err));
   };
+};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -79,7 +84,7 @@ function Signup() {
           labelText="Confirm Password"
           placeholder="p@ssw0Rd!"
           name="passwordconfirm"
-          type="passwordconfirm"
+          type="password"
           onChange={handleChange}
         />
         <InputGroup
@@ -90,11 +95,10 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
-        <InputGroup
+        <ImageUpload
           id="logo"
           labelText="Logo (Optional)"
           name="logo"
-          type="file"
         />
         <button type="submit">Submit</button>
       </Form>
