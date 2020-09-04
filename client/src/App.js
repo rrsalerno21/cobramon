@@ -18,6 +18,8 @@ import CustomerReview from "./pages/CustomerReview";
 import ThankYou from "./pages/ThankYou";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
+import Chat from "./components/Chat/Chat"; 
+import Join from "./components/Join/Join"; 
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            <Route exact path="/joinsession" exact component={Join} />
+            <Route exact path="/chat" exact component={Chat} />
             {/* TODO: Change to Protected Routes */}
             <Route exact path="/chat">
               <Chat />
