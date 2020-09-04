@@ -1,4 +1,6 @@
+// 'useEffect' allows you to perform side effects in function components
 import React, { useState, useEffect } from "react";
+// This module will be used for retrieving data from the URL
 import queryString from 'query-string';
 import io from "socket.io-client";
 
