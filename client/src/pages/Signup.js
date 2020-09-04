@@ -15,9 +15,9 @@ const signupStyles = {
 
 function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
+    restaurant_name: "",
     email: "",
-    password: "",
+    passwordConfirm: "",
     confirm: "",
   });
 
@@ -31,14 +31,28 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (formState.password !== formState.confirm) {
+    console.log("Confirmed =" + formState.confirm);
+    console.log("Password =" + formState.password);
+
+    if (formState.password !== formState.passwordConfirm) {
       alert("password must match");
     } else {
-      API.signUpUser(formState.username, formState.email, formState.password)
+      // Add signUpUser parameters for Table Count, Image Logo
+      // Add conditional if logo is not provided, use Company Text as a header
+      // UPDATE signUpUser to generate...
+      // QR Code strings
+      // Then create X amount of tables, each assigned a QR code string
+
+      API.signUpUser(
+        formState.restaurant_name,
+        formState.email,
+        formState.password
+      )
         .then((res) => {
           // once the user has signed up
           // send them to the login page
-          history.replace("/login");
+          console.log(res);
+          history.replace("/qrcodes");
         })
         .catch((err) => alert(err));
     }
@@ -50,6 +64,7 @@ function Signup() {
       ...formState,
       [name]: value,
     });
+    console.log(name, value);
   };
 
   return (
@@ -57,10 +72,10 @@ function Signup() {
       <h1>Sign Up</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
-          id="restaurantname"
+          id="restaurant_name"
           labelText="Restaurant Name"
           placeholder="Your Cafe"
-          name="restaurantname"
+          name="restaurant_name"
           type="text"
           onChange={handleChange}
         />
@@ -84,7 +99,7 @@ function Signup() {
           id="pwdconfirm"
           labelText="Confirm Password"
           placeholder="p@ssw0Rd!"
-          name="passwordconfirm"
+          name="passwordConfirm"
           type="password"
           onChange={handleChange}
         />
