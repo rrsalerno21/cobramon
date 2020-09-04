@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
-import { Form, InputGroup } from "../components/LoginForm";
+import ImageUpload from "../components/SignupForm/ImageUpload";
+import { Form, InputGroup } from "../components/LoginForm/";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -14,9 +15,10 @@ const signupStyles = {
 
 function Signup() {
   const [formState, setFormState] = useState({
-    username: "",
+    restaurant_name: "",
     email: "",
-    password: "",
+    passwordConfirm: "",
+    confirm: "",
   });
 
   const { isLoggedIn } = useAuth();
@@ -29,13 +31,31 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    API.signUpUser(formState.username, formState.email, formState.password)
-      .then((res) => {
-        // once the user has signed up
-        // send them to the login page
-        history.replace("/login");
-      })
-      .catch((err) => alert(err));
+    console.log("Confirmed =" + formState.confirm);
+    console.log("Password =" + formState.password);
+
+    if (formState.password !== formState.passwordConfirm) {
+      alert("password must match");
+    } else {
+      // Add signUpUser parameters for Table Count, Image Logo
+      // Add conditional if logo is not provided, use Company Text as a header
+      // UPDATE signUpUser to generate...
+      // QR Code strings
+      // Then create X amount of tables, each assigned a QR code string
+
+      API.signUpUser(
+        formState.restaurant_name,
+        formState.email,
+        formState.password
+      )
+        .then((res) => {
+          // once the user has signed up
+          // send them to the login page
+          console.log(res);
+          history.replace("/qrcodes");
+        })
+        .catch((err) => alert(err));
+    }
   };
 
   const handleChange = (event) => {
@@ -44,17 +64,18 @@ function Signup() {
       ...formState,
       [name]: value,
     });
+    console.log(name, value);
   };
 
   return (
     <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
+      <h1>Sign Up</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
-          id="username"
-          labelText="Username"
-          placeholder="WinterIsComing"
-          name="username"
+          id="restaurant_name"
+          labelText="Restaurant Name"
+          placeholder="Your Cafe"
+          name="restaurant_name"
           type="text"
           onChange={handleChange}
         />
@@ -74,6 +95,23 @@ function Signup() {
           type="password"
           onChange={handleChange}
         />
+        <InputGroup
+          id="pwdconfirm"
+          labelText="Confirm Password"
+          placeholder="p@ssw0Rd!"
+          name="passwordConfirm"
+          type="password"
+          onChange={handleChange}
+        />
+        <InputGroup
+          id="tablecount"
+          labelText="Table Count"
+          placeholder="10"
+          name="tablecount"
+          type="text"
+          onChange={handleChange}
+        />
+        <ImageUpload id="logo" labelText="Logo (Optional)" name="logo" />
         <button type="submit">Submit</button>
       </Form>
       <Link
@@ -83,7 +121,7 @@ function Signup() {
         }}
         to="/login"
       >
-        Go to Login
+        Already a member? Login
       </Link>
     </div>
   );

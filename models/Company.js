@@ -22,6 +22,10 @@ const SessionSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  sessionParticipants: {
+    type: Number,
+    default: 0,
+  },
   sessionOpened: {
     type: Date,
     default: Date.now(),
@@ -36,15 +40,16 @@ const SessionSchema = new Schema({
 const ChatSchema = new Schema(
   {
     message: {
-      type: String
-    }, 
-    sender: {
-      type: String
-          }
-    }, 
-          {
-    timestamps: true
-  }); 
+      type: String,
+    },
+    customer_id: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const TableSchema = new Schema({
   table_id: {
@@ -96,7 +101,7 @@ const ReviewSchema = new Schema({
 });
 
 const CompanySchema = new Schema({
-  username: {
+  restaurant_name: {
     type: String,
     required: true,
     trim: true,
