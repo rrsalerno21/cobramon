@@ -19,6 +19,7 @@ function Signup() {
     email: "",
     passwordConfirm: "",
     confirm: "",
+    tableCount: 0,
   });
 
   const { isLoggedIn } = useAuth();
@@ -46,7 +47,8 @@ function Signup() {
       API.signUpUser(
         formState.restaurant_name,
         formState.email,
-        formState.password
+        formState.password,
+        formState.tableCount
       )
         .then((res) => {
           // once the user has signed up
@@ -104,10 +106,10 @@ function Signup() {
           onChange={handleChange}
         />
         <InputGroup
-          id="tablecount"
+          id="tableCount"
           labelText="Table Count"
           placeholder="10"
-          name="tablecount"
+          name="tableCount"
           type="text"
           onChange={handleChange}
         />

@@ -17,7 +17,14 @@ router.post("/api/login", (req, res) => {
 });
 
 router.post("/api/signup", (req, res) => {
-  db.Company.create(req.body)
+  console.log(req.body.table_count);
+  // Generate 'table_count' amount of QR code strings and store them in an array
+  // Create 'table_count' amount of table schema objects
+  db.Company.create({
+    restaurant_name: req.body.restaurant_name,
+    email: req.body.email,
+    password: req.body.password,
+  })
     .then((data) => res.json(data))
     .catch((err) => res.status(400).json(err));
 });
