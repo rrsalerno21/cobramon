@@ -20,63 +20,60 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
 import Chat from "./components/Chat/Chat";
 import Join from "./components/Join/Join";
-import { GlobalProvider } from "./utils/GlobalStore";
 
 function App() {
   return (
     <AuthProvider>
-      <GlobalProvider>
-        <Router>
-          <div>
-            <Navbar />
-            <Switch>
-              <ProtectedRoute exact path="/">
-                <Home />
-              </ProtectedRoute>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
-              <ProtectedRoute exact path="/profile">
-                <Profile />
-              </ProtectedRoute>
-              <Route exact path="/joinsession" exact component={Join} />
-              <Route exact path="/chat" exact component={Chat} />
-              {/* TODO: Change to Protected Routes */}
-              <Route exact path="/chat">
-                <Chat />
-              </Route>
-              <Route exact path="/tables">
-                <Tables />
-              </Route>
-              <Route exact path="/qrcodes">
-                <QRCodes />
-              </Route>
-              <Route exact path="/reviews">
-                <Reviews />
-              </Route>
+      <Router>
+        <div>
+          <Navbar />
+          <Switch>
+            <ProtectedRoute exact path="/">
+              <Home />
+            </ProtectedRoute>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+            <ProtectedRoute exact path="/profile">
+              <Profile />
+            </ProtectedRoute>
+            <Route exact path="/joinsession" exact component={Join} />
+            <Route exact path="/chat" exact component={Chat} />
+            {/* TODO: Change to Protected Routes */}
+            <Route exact path="/chat">
+              <Chat />
+            </Route>
+            <Route exact path="/tables">
+              <Tables />
+            </Route>
+            <Route exact path="/qrcodes">
+              <QRCodes />
+            </Route>
+            <Route exact path="/reviews">
+              <Reviews />
+            </Route>
 
-              <Route exact path="/welcome">
-                <Welcome />
-              </Route>
-              <Route exact path="/customerchat">
-                <CustomerChat />
-              </Route>
-              <Route exact path="/customerreview">
-                <CustomerReview />
-              </Route>
-              <Route exact path="/thankyou">
-                <ThankYou />
-              </Route>
-              <Route path="/*">
-                <NoMatch />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </GlobalProvider>
+            <Route exact path="/welcome">
+              <Welcome />
+            </Route>
+            <Route exact path="/customerchat">
+              <CustomerChat />
+            </Route>
+            <Route exact path="/customerreview">
+              <CustomerReview />
+            </Route>
+            <Route exact path="/thankyou">
+              <ThankYou />
+            </Route>
+            <Route path="/*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </AuthProvider>
   );
 }
