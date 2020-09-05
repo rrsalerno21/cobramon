@@ -17,9 +17,10 @@ function Signup() {
   const [formState, setFormState] = useState({
     restaurant_name: "",
     email: "",
+    password: "",
     passwordConfirm: "",
-    confirm: "",
     tableCount: 0,
+    company_logo: "",
   });
 
   const { isLoggedIn } = useAuth();
@@ -32,18 +33,10 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Confirmed =" + formState.confirm);
-    console.log("Password =" + formState.password);
 
     if (formState.password !== formState.passwordConfirm) {
       alert("password must match");
     } else {
-      // Add signUpUser parameters for Table Count, Image Logo
-      // Add conditional if logo is not provided, use Company Text as a header
-      // UPDATE signUpUser to generate...
-      // QR Code strings
-      // Then create X amount of tables, each assigned a QR code string
-
       API.signUpUser(
         formState.restaurant_name,
         formState.email,
@@ -66,7 +59,6 @@ function Signup() {
       ...formState,
       [name]: value,
     });
-    console.log(name, value);
   };
 
   return (
@@ -113,7 +105,7 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
-        <ImageUpload id="logo" labelText="Logo (Optional)" name="logo" />
+        {/* <ImageUpload id="logo" labelText="Logo (Optional)" name="logo" /> */}
         <button type="submit">Submit</button>
       </Form>
       <Link

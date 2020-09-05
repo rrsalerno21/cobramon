@@ -52,7 +52,7 @@ const ChatSchema = new Schema(
 );
 
 const TableSchema = new Schema({
-  table_id: {
+  table_num: {
     type: Number,
     required: true,
   },
