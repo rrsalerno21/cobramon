@@ -5,11 +5,12 @@ export default {
     return axios.get(`/api/user/${id}`);
   },
   // sign up a user to our service
-  signUpUser: (restaurant_name, email, password) => {
+  signUpUser: (restaurant_name, email, password, table_count) => {
     return axios.post("api/signup", {
       restaurant_name: restaurant_name,
       email: email,
       password: password,
+      table_count: table_count,
     });
   },
 };
