@@ -1,0 +1,29 @@
+.sidebar-container {
+  text-align: center;
+  width: 200px;
+  max-height: calc(100vh - 9rem);
+  margin: auto;
+  position: fixed;
+  background-color: #f04326;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.sidebar-title {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  color: white;
+  padding: 1.5rem 0.75rem 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-right: 0.3rem solid transparent;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  border-right: 0.3rem solid #f9dd70;
+}
