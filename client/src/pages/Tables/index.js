@@ -1,16 +1,8 @@
-// import API from "./../utils/API";
 import Container from "../../components/Container";
-// import { Link } from "react-router-dom";
-// import { useAuth } from "../utils/auth";
 import React, {useState, useEffect} from 'react';
 import API from "../../utils/API";
-import Sidebar from '../Tables'
-// import "./Sidebar.css";
 import "./tables.css";
 import { useAuth } from "../../utils/auth";
-
-
-import "./tables.css";
 
 function Tables() {
   const { user } = useAuth();
