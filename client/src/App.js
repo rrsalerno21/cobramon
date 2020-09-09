@@ -49,9 +49,9 @@ function App() {
             <Route exact path="/tables">
               <Tables />
             </Route>
-            <Route exact path="/qrcodes">
+            <ProtectedRoute exact path="/qrcodes">
               <QRCodes />
-            </Route>
+            </ProtectedRoute>
             <Route exact path="/reviews">
               <Reviews />
             </Route>

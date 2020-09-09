@@ -23,7 +23,7 @@ function Signup() {
     company_logo: "",
   });
 
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, login } = useAuth();
 
   const history = useHistory();
 
@@ -45,9 +45,12 @@ function Signup() {
       )
         .then((res) => {
           // once the user has signed up
-          // send them to the login page
-          console.log(res);
-          history.replace("/qrcodes");
+          login(formState.email, formState.password)
+          // navigate to the qrcode
+          .then(() => history.push("/qrcodes"))
+          .catch((err) => {
+            alert(err.response.data.message);
+          });
         })
         .catch((err) => alert(err));
     }
