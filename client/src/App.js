@@ -56,7 +56,7 @@ function App() {
               <Reviews />
             </Route>
 
-            <Route exact path="/welcome">
+            <Route path="/welcome/:company_id/:table_num">
               <Welcome />
             </Route>
             <Route exact path="/customerchat">

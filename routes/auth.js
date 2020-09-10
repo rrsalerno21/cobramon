@@ -36,10 +36,12 @@ router.post("/api/signup", async (req, res) => {
     const QR_array = [];
     const table_array = [];
 
+    //  addUser to socket.io using companyID
+
     // Loop through # of tables to generate QR strings
-    // and create table objects
+    // and create table objects http://localhost:3000/welcome?company_id=12039485739?table_num=table_1
     for (let i = 1; i <= table_count; i++) {
-      let QR_string = `http://api.qrserver.com/v1/create-qr-code/?data=company_id_${company_id}&table_num=${i}size=200x200`;
+      let QR_string = `http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://localhost:3000/welcome/${company_id}/${i}`;
       QR_array.push(QR_string);
       let table_obj = {
         table_num: i,
