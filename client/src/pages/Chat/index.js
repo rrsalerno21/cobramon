@@ -1,29 +1,38 @@
-import React, { useState, useEffect } from "react";
-// import API from "./../utils/API";
 import Container from "../../components/Container";
-// import { Link } from "react-router-dom";
-// import { useAuth } from "../utils/auth";
+import React, { useState, useEffect } from 'react';
+import API from "../../utils/API";
 import "./chat.css";
+import { useAuth } from "../../utils/auth";
 
-function Chat() {
+function ChatSidebar() {
+  const { user } = useAuth();
+  const [tables, setTables] = useState([]);
+  const [selectedTableChat, setSelectedTableChat] = useState(null);
+
+  useEffect(() => {
+    API.getUser(user.id)
+      .then((res) => {
+        setTables(res.data.tables
+          // .filter(table => table.isActive)
+          .map(table => (
+            <div className="sidebar-item" onClick={() => setSelectedTableChat(table.table_num)}>
+              <p className="sidebar-title">Table {table.table_num}</p>
+            </div>
+          )))
+      });
+  }, [user]);
 
   return (
-    // TODO: CREATE FULL WIDTH COMPONENT
     <div className="full-width">
-      {/* TODO: CREATE SIDEBAR COMPONENT */}
-      <div className="sidebar">
-        {/* TODO: FOR EACH TABLE CREATE TABLE COMPONENT */}
-        <a className="active" href="#news">Table #1</a>
-        <a href="#contact">Table #2</a>
-        <a href="#about">Table #3</a>
-        <a href="#news">Table #4</a>
+    <div className="sidebar-container">
+        {tables}
       </div>
-      <Container>
-        <h1> CHAT PAGE </h1>
-        {/* TODO: CHAT COMPONENT GOES HERE */}
-      </Container>
+    <Container>
+    <h1> Tables PAGE </h1>
+    </Container>
     </div>
+    
   );
 }
 
-export default Chat;
+export default ChatSidebar;
