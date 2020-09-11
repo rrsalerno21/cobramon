@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 // import API from "./../utils/API";
-import Container from "../components/Container";
+import Chat from "../components/Chat/Chat";
 // import { Link } from "react-router-dom";
 // import { useAuth } from "../utils/auth";
 
-function CustomerChat() {
+function CustomerChat(props) {
 
   return (
-    <Container>
-      <h1> CustomerChat PAGE </h1>
-    </Container>
+    <Chat 
+    location = {props}
+    />
   );
 }
 
