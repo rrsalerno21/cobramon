@@ -20,6 +20,7 @@ import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
 import Chat from "./components/Chat/Chat";
 import Join from "./components/Join/Join";
+import CompanyChat from "./components/CompanyChat/CompanyChat";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             </ProtectedRoute>
             <Route exact path="/joinsession" exact component={Join} />
             <Route exact path="/chat" exact component={Chat} />
+            <Route exact path="/companychat" exact component={CompanyChat} />
             {/* TODO: Change to Protected Routes */}
             <Route exact path="/chat">
               <Chat />
