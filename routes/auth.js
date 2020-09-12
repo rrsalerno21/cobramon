@@ -47,7 +47,7 @@ router.post("/api/signup", async (req, res) => {
         table_num: i,
         QR_code: QR_string,
         isActive: false,
-        sessions: [],
+        chat: [],
       };
       table_array.push(table_obj);
     }
