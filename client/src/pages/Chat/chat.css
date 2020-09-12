@@ -1,4 +1,5 @@
-.sidebar {
+.sidebar-container {
+  text-align: center;
   margin: 0;
   padding: 0;
   width: 200px;
@@ -8,19 +9,20 @@
   overflow: auto;
 }
 
-.sidebar a {
+.sidebar-item {
   display: block;
   color: black;
+  cursor: pointer;
   padding: 16px;
   text-decoration: none;
   border-bottom: .01rem solid #D3D3D3;
 }
 
-.sidebar a.active {
+.sidebar-item.active {
   border-right: 0.3rem solid #f9dd70;
 }
 
-.sidebar a:hover:not(.active) {
+.sidebar-item:hover:not(.active) {
   background-color: #f9dd70;
   color: white;
 }
