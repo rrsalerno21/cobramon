@@ -2,20 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
-const RequestSchema = new Schema({
-  customer_id: {
-    type: Number,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-});
+// const RequestSchema = new Schema({
+//   customer_id: {
+//     type: Number,
+//     required: true,
+//   },
+//   author: {
+//     type: String,
+//     required: true,
+//   },
+//   message: {
+//     type: String,
+//     required: true,
+//   },
+// });
 
 // const SessionSchema = new Schema({
 //   sessionActive: {

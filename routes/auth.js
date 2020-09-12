@@ -44,12 +44,14 @@ router.post("/api/signup", async (req, res) => {
       let QR_string = `http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://localhost:3000/welcome/${company_id}/${i}`;
       QR_array.push(QR_string);
       let table_obj = {
+        company_id: company_id,
         table_num: i,
         QR_code: QR_string,
         isActive: false,
         chat: [],
       };
-      table_array.push(table_obj);
+      const createTable = await db.Table.create(table_obj);
+      table_array.push(createTable);
     }
 
     // Update the company with QR_codes and tables

@@ -10,10 +10,13 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 
 import "./CompanyChat.css";
+import { useAuth } from "../../utils/auth";
+import API from "../../utils/API";
 
 let socket;
 
 const CompanyChat = ({ location }) => {
+  const { user } = useAuth();
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
   const [users, setUsers] = useState("");
@@ -29,6 +32,13 @@ const CompanyChat = ({ location }) => {
     setRoom(room);
     setName(name);
 
+    API.getMessages(user.id, room)
+      .then((response) => {
+        const chatArray = response.data[0].chat;
+        setMessages([...messages, ...chatArray]);
+      })
+      .catch((err) => console.log("Error getting messages", err));
+
     socket.emit("join", { name, room }, (error) => {
       if (error) {
         alert(error);
@@ -38,6 +48,7 @@ const CompanyChat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
+      console.log("updated messages using setMessages");
       setMessages((messages) => [...messages, message]);
     });
 
@@ -50,7 +61,14 @@ const CompanyChat = ({ location }) => {
     event.preventDefault();
 
     if (message) {
-      socket.emit("sendMessage", message, () => setMessage(""));
+      socket.emit("sendMessage", message, () => {
+        API.sendMessage(user.id, room, {
+          text: message,
+          user: name,
+        })
+          .then(() => setMessage(""))
+          .catch((err) => console.log(err));
+      });
     }
   };
 
