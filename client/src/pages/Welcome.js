@@ -14,6 +14,9 @@ function Welcome() {
         Company Id: {company_id} <br />
         Table Num: {table_num}
       </p>
+      <Link>
+        <button className={'button mt-20'} type="submit" to="/customerchat">Sign In</button>
+      </Link>
     </Container>
   );
 }

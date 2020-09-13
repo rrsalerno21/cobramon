@@ -1,8 +1,9 @@
 import Container from "../../components/Container";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import API from "../../utils/API";
 import "./tables.css";
 import { useAuth } from "../../utils/auth";
+import Chat from "../../components/Chat/Chat";
 
 function Tables() {
   const { user } = useAuth();
@@ -21,20 +22,17 @@ function Tables() {
   }, [user]);
 
   return (
-    <Container>
-      <h1> Tables PAGE </h1>
-      {/* <div>
-        {selectedTableNum}
-      </div> */}
+    <div className="full-width">
       <div className="sidebar-container">
         {tables}
       </div>
-    {/* <Chat
-      TODO: connect sidebar to chat component by passing selectedTablenum(?)
-      tableId={selectedTableNum}
-    /> */}
-    </Container>
+      <Container>
+        <h1> Tables PAGE </h1>
+      </Container>
+    </div>
+
   );
 }
+
 
 export default Tables;

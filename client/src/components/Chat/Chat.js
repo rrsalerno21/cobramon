@@ -13,28 +13,32 @@ import './Chat.css';
 
 let socket;
 
-const Chat = ({ location }) => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
+const Chat = ({ name, room }) => {
+    // const [name, setName] = useState('');
+    // const [room, setRoom] = useState('');
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const ENDPOINT = "http://localhost:3000/";
 
     useEffect(() => {
-        const { name, room } = queryString.parse(location.search);
+        // const { name, room } = queryString.parse(location.search);
 
         socket = io(ENDPOINT);
 
-        setRoom(room);
-        setName(name)
+        // setRoom(room);
+        // setName(name)
 
         socket.emit('join', { name, room }, (error) => {
             if (error) {
                 alert(error);
             }
         });
-    }, [ENDPOINT, location.search]);
+
+        return function cleanup() {
+          socket.disconnect('disconnect');
+        }
+    }, [ENDPOINT, name, room]);
 
     useEffect(() => {
         socket.on('message', message => {
@@ -57,6 +61,7 @@ const Chat = ({ location }) => {
     return (
         // <div className="outerContainer">
             <div className="container">
+              
                 <InfoBar room={room} />
                 <Messages messages={messages} name={name} />
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />

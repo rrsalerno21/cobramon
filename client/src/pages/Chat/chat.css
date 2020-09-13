@@ -29,4 +29,5 @@
 
 .full-width { 
   display: flex;
+  flex-direction: row;
 }
