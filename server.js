@@ -86,6 +86,7 @@ io.on("connect", (socket) => {
   // Will execute whenever a client disconnects from session
   socket.on("disconnect", () => {
     const user = removeUser(socket.id);
+
     if (user) {
       io.to(user.room).emit("message", {
         user: "Admin",
