@@ -15,7 +15,7 @@ const Chat = ({ name, room }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "http://localhost:3001/";
+  const ENDPOINT = "https://cobramon.herokuapp.com/";
 
   useEffect(() => {
     // const { name, room } = queryString.parse(location.search);
