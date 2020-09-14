@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose"); 
 const http = require("http");
 const socketio = require("socket.io");
 const cors = require("cors");
@@ -22,6 +23,11 @@ const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
 
+mongoose.connect(process.env.MONGO_URI) || "http://localhost:3001/", {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
+}
+
 app.use(cors());
 app.use(router);
 
@@ -33,6 +39,10 @@ if (process.env.NODE_ENV !== "production") {
 // Setting up express to use json and set it to req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build")); 
+}
 
 initDb();
 
