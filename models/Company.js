@@ -2,40 +2,40 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
-const RequestSchema = new Schema({
-  customer_id: {
-    type: Number,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-});
+// const RequestSchema = new Schema({
+//   customer_id: {
+//     type: Number,
+//     required: true,
+//   },
+//   author: {
+//     type: String,
+//     required: true,
+//   },
+//   message: {
+//     type: String,
+//     required: true,
+//   },
+// });
 
-const SessionSchema = new Schema({
-  sessionActive: {
-    type: Boolean,
-    required: true,
-  },
-  sessionParticipants: {
-    type: Number,
-    default: 0,
-  },
-  sessionOpened: {
-    type: Date,
-    default: Date.now(),
-  },
-  sessionClosed: {
-    type: Boolean,
-    required: true,
-  },
-  requests: [RequestSchema],
-});
+// const SessionSchema = new Schema({
+//   sessionActive: {
+//     type: Boolean,
+//     required: true,
+//   },
+//   sessionParticipants: {
+//     type: Number,
+//     default: 0,
+//   },
+//   sessionOpened: {
+//     type: Date,
+//     default: Date.now(),
+//   },
+//   sessionClosed: {
+//     type: Boolean,
+//     required: true,
+//   },
+//   requests: [RequestSchema],
+// });
 
 const ChatSchema = new Schema(
   {
@@ -58,7 +58,7 @@ const TableSchema = new Schema({
   },
   QR_code: String,
   isActive: Boolean,
-  sessions: [SessionSchema],
+  chat: [ChatSchema],
 });
 
 const ReviewSchema = new Schema({
@@ -127,7 +127,6 @@ const CompanySchema = new Schema({
   QR_codes: [String],
   tables: [TableSchema],
   reviews: [ReviewSchema],
-  chat: [ChatSchema],
   createdAt: {
     type: Date,
     default: Date.now,

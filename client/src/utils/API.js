@@ -13,4 +13,14 @@ export default {
       table_count: table_count,
     });
   },
+  sendMessage: (company_id, table_id, message) => {
+    return axios.post("api/sendMessage", {
+      company_id: company_id,
+      table_id: table_id,
+      message: message,
+    });
+  },
+  getMessages: (company_id, table_num) => {
+    return axios.get(`api/getMessages/${company_id}/${table_num}`);
+  },
 };
