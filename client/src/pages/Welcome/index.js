@@ -8,11 +8,11 @@ import "./welcome.css";
 function Welcome() {
   const { company_id, table_num } = useParams();
   return (
-    <div className="welcome">
-      <h1> Welcome to COMPANY NAME </h1>
+    <div className="welcome-container">
+      <h1 className="welcome"> Welcome to COMPANY NAME </h1>
       {/* TODO: CORRECT LINK */}
       {/* onClick={e => (!company_id || !table_num) ? e.preventDefault() : null} to={`/customerchat/name={ADDNAME}&room=${company_id}${table_num}` */}
-      <Link  to='/customerchat'>
+      <Link className="service-link" to='/customerchat'>
         <button> 
           Request Service
         </button>

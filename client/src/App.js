@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-// import Chat from "./pages/Chat/";
+import ChatSidebar from "./pages/Chat/";
 import Tables from "./pages/Tables";
 import QRCodes from "./pages/QRCodes/";
 import Reviews from "./pages/Reviews";
@@ -42,12 +42,13 @@ function App() {
               <Profile />
             </ProtectedRoute>
             <Route exact path="/joinsession" exact component={Join} />
-            <Route exact path="/chat" exact component={Chat} />
+            <Route exact path="/chat" exact component={ChatSidebar}/>
             <Route exact path="/companychat" exact component={CompanyChat} />
+
             {/* TODO: Change to Protected Routes */}
-            <Route exact path="/chat">
+            {/* <Route exact path="/chat">
               <Chat />
-            </Route>
+            </Route> */}
             <Route exact path="/tables">
               <Tables />
             </Route>
@@ -57,7 +58,7 @@ function App() {
             <Route exact path="/reviews">
               <Reviews />
             </Route>
-              {/* /:company_id/:table_num */}
+            {/* TODO: add back params for welcome /:company_id/:table_num */}
             <Route path="/welcome">
               <Welcome />
             </Route>
