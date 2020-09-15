@@ -8,11 +8,11 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import ChatSidebar from "./pages/Chat/";
+// import Chat from "./pages/Chat/";
 import Tables from "./pages/Tables";
 import QRCodes from "./pages/QRCodes/";
 import Reviews from "./pages/Reviews";
-import Welcome from "./pages/Welcome";
+import Welcome from "./pages/Welcome/";
 import CustomerChat from "./pages/CustomerChat";
 import CustomerReview from "./pages/CustomerReview";
 import ThankYou from "./pages/ThankYou";
@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <Switch>
             <ProtectedRoute exact path="/">
-              <Home />
+            <QRCodes />
             </ProtectedRoute>
             <Route exact path="/login">
               <Login />
@@ -42,13 +42,12 @@ function App() {
               <Profile />
             </ProtectedRoute>
             <Route exact path="/joinsession" exact component={Join} />
-            <Route exact path="/chat" exact component={ChatSidebar}/>
+            <Route exact path="/chat" exact component={Chat} />
             <Route exact path="/companychat" exact component={CompanyChat} />
-
             {/* TODO: Change to Protected Routes */}
-            {/* <Route exact path="/chat">
+            <Route exact path="/chat">
               <Chat />
-            </Route> */}
+            </Route>
             <Route exact path="/tables">
               <Tables />
             </Route>
@@ -58,8 +57,8 @@ function App() {
             <Route exact path="/reviews">
               <Reviews />
             </Route>
-
-            <Route path="/welcome/:company_id/:table_num">
+              {/* /:company_id/:table_num */}
+            <Route path="/welcome">
               <Welcome />
             </Route>
             <Route path="/customerchat">
