@@ -40,10 +40,6 @@ if (process.env.NODE_ENV !== "production") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build")); 
-}
-
 initDb();
 
 // Serve up static assets in production (usually on heroku)
