@@ -4,9 +4,9 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 // Our Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./pages/Login/";
+import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Signup from "./pages/Signup/";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import ChatSidebar from "./pages/Chat/";
 import Tables from "./pages/Tables";

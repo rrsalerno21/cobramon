@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import API from "../../utils/API";
-import { useAuth } from "../../utils/auth";
+import API from "../utils/API";
+import { useAuth } from "../utils/auth";
 // import ImageUpload from "../components/SignupForm/ImageUpload";
-import { Form, InputGroup } from "../../components/LoginForm/";
-import "./signup.css";
+import { Form, InputGroup } from "../components/LoginForm/";
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -59,8 +58,8 @@ function Signup() {
 
   return (
     <div className="background-image">
-    <h1 className="welcome"> project cobra </h1>
-    <div className="Signup">
+    <h1 className="title-text"> project cobra </h1>
+    <div className="form">
       <h1>Sign Up</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
