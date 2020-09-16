@@ -12,10 +12,10 @@ import ChatSidebar from "./pages/Chat/";
 import Tables from "./pages/Tables";
 import QRCodes from "./pages/QRCodes/";
 import Reviews from "./pages/Reviews";
-import Welcome from "./pages/Welcome";
+import Welcome from "./pages/Welcome/";
 import CustomerChat from "./pages/CustomerChat";
 import CustomerReview from "./pages/CustomerReview";
-import ThankYou from "./pages/ThankYou";
+import ThankYou from "./pages/ThankYou/";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
 import Chat from "./components/Chat/Chat";
@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <Switch>
             <ProtectedRoute exact path="/">
-              <Home />
+            <QRCodes />
             </ProtectedRoute>
             <Route exact path="/login">
               <Login />
@@ -58,8 +58,8 @@ function App() {
             <Route exact path="/reviews">
               <Reviews />
             </Route>
-
-            <Route path="/welcome/:company_id/:table_num">
+            {/* TODO: add back params for welcome /:company_id/:table_num */}
+            <Route path="/welcome">
               <Welcome />
             </Route>
             <Route path="/customerchat">
