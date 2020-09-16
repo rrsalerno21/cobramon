@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <Switch>
             <ProtectedRoute exact path="/">
-            <QRCodes />
+              <QRCodes />
             </ProtectedRoute>
             <Route exact path="/login">
               <Login />
@@ -42,7 +42,7 @@ function App() {
               <Profile />
             </ProtectedRoute>
             <Route exact path="/joinsession" exact component={Join} />
-            <Route exact path="/chat" exact component={ChatSidebar}/>
+            <Route exact path="/chat" exact component={ChatSidebar} />
             <Route exact path="/companychat" exact component={CompanyChat} />
 
             {/* TODO: Change to Protected Routes */}
@@ -62,9 +62,7 @@ function App() {
             <Route path="/welcome">
               <Welcome />
             </Route>
-            <Route path="/customerchat">
-              <CustomerChat />
-            </Route>
+            <Route path="/customerchat" exact component={CustomerChat} />
             <Route exact path="/customerreview">
               <CustomerReview />
             </Route>

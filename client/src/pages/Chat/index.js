@@ -1,5 +1,5 @@
 import Container from "../../components/Container";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import "./chat.css";
 import { useAuth } from "../../utils/auth";
@@ -11,33 +11,30 @@ function ChatSidebar() {
   const [tables, setTables] = useState([]);
   const [selectedTableNum, setSelectedTableNum] = useState(null);
 
-
   useEffect(() => {
-    setSelectedTableNum(1);
-    
-    API.getUser(user.id)
-      .then((res) => {
-        setTables(res.data.tables
+    API.getUser(user.id).then((res) => {
+      setTables(
+        res.data.tables
           // .filter(table => table.isActive)
-          .map(table => (
-            <div className="sidebar-item" onClick={() => setSelectedTableNum(table.table_num)}>
+          .map((table) => (
+            <div
+              className="sidebar-item"
+              onClick={() => setSelectedTableNum(table.table_num)}
+            >
               <p className="sidebar-title">Table {table.table_num}</p>
             </div>
-          )))
-      });
+          ))
+      );
+    });
   }, [user]);
 
   return (
     <div className="full-width">
-      <div className="sidebar-container">
-
-        
-          {tables}
-        
-      </div>
-        {selectedTableNum && <Chat name="server" room={selectedTableNum} />}
+      <div className="sidebar-container">{tables}</div>
+      {selectedTableNum && (
+        <Chat name="server" room={`${user.id}-${selectedTableNum}`} />
+      )}
     </div>
-
   );
 }
 
