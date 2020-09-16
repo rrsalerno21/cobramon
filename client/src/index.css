@@ -41,7 +41,6 @@ h1 {
   background-position: right bottom;
 }
 
-
 .title-text {
   font-family: 'Anton', sans-serif;
   color: white;
@@ -49,12 +48,12 @@ h1 {
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: .035em;
-  margin-top: 0px;
+  margin: 0px;
 }
 
 
 /* Login/Signup Forms */
-.form {
+.login-form {
   width: 25%;
   display: flex;
   justify-content: center;
@@ -66,18 +65,18 @@ h1 {
 }
 
 @media only screen and (max-width: 1000px) {
-  .form {
+  .login-form {
     width: 50%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .form {
+  .login-form {
     width: 80%;
   }
 }
 
-.form>h1 {
+.login-form>h1 {
   margin-top: 0px;
 }
 

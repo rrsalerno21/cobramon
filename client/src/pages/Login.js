@@ -27,7 +27,7 @@ function Login() {
   return (
     <div className="background-image">
     <h1 className="title-text"> project cobra </h1>
-    <div className="form">
+    <div className="login-form">
       <h1>Login</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup

@@ -34,7 +34,6 @@ function ChatSidebar() {
         
       </div>
         {selectedTableNum && <Chat name="server" room={selectedTableNum} />}
-       
     </div>
 
   );
