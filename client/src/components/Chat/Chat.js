@@ -18,9 +18,13 @@ const Chat = ({ name, room }) => {
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+<<<<<<< HEAD
   const ENDPOINT = "https://cobramon.herokuapp.com/";  //"http://localhost:3001/";
   const company_id = user ? user.id : String(room).split("-")[0];
   const table_id = String(room).split("-")[1];
+=======
+  const ENDPOINT = "https://cobramon.herokuapp.com/"  //"http://localhost:3001/";
+>>>>>>> f8394bd... Successfull cloud hosted db using Atlas. Changes to server.js and Chat.js
 
 
   useEffect(() => {

@@ -23,7 +23,7 @@ const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
 
-const uri = "mongodb+srv://wantanapple8662@gmail.com:Ji8HYNeaoj6dEoUn@cobramon.gxk15.mongodb.net/appDB?retryWrites=true&w=majority"; 
+const uri = "mongodb+srv://admin:Ji8HYNeaoj6dEoUn@cobramon.gxk15.mongodb.net/appDB?retryWrites=true&w=majority"; 
 
 mongoose.connect(uri) || "http://localhost:3001/", {
   useNewUrlParser: true, 
