@@ -7,13 +7,13 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "node backend/server.js",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run install && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "lint": "eslint . && cd client && npm run lint",
     "lint:fix": "eslint --fix . && cd client && npm run lint:fix",
     "test": "cd client && npm run test"
