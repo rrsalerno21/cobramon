@@ -15,7 +15,7 @@ import Reviews from "./pages/Reviews";
 import Welcome from "./pages/Welcome/";
 import CustomerChat from "./pages/CustomerChat";
 import CustomerReview from "./pages/CustomerReview";
-import ThankYou from "./pages/ThankYou/";
+import ThankYou from "./pages/ThankYou";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
 import Chat from "./components/Chat/Chat";
