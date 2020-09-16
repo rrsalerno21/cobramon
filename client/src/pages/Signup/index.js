@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import API from "./../utils/API";
-import { useAuth } from "../utils/auth";
-import ImageUpload from "../components/SignupForm/ImageUpload";
-import { Form, InputGroup } from "../components/LoginForm/";
-
-const signupStyles = {
-  maxWidth: "20rem",
-  margin: "0 auto",
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "column",
-};
+import API from "../../utils/API";
+import { useAuth } from "../../utils/auth";
+// import ImageUpload from "../components/SignupForm/ImageUpload";
+import { Form, InputGroup } from "../../components/LoginForm/";
+import "./signup.css";
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -65,7 +58,9 @@ function Signup() {
   };
 
   return (
-    <div style={signupStyles} className="Signup">
+    <div className="background-image">
+    <h1 className="welcome"> project cobra </h1>
+    <div className="Signup">
       <h1>Sign Up</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
@@ -112,14 +107,12 @@ function Signup() {
         <button type="submit">Submit</button>
       </Form>
       <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
+        className="member"
         to="/login"
       >
-        Already a member? Login
+        Already a member? <span>Login</span>
       </Link>
+    </div>
     </div>
   );
 }
