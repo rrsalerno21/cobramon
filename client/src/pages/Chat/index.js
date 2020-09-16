@@ -13,6 +13,8 @@ function ChatSidebar() {
 
 
   useEffect(() => {
+    setSelectedTableNum(1);
+    
     API.getUser(user.id)
       .then((res) => {
         setTables(res.data.tables
