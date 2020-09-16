@@ -7,9 +7,10 @@ import Container from "../components/Container";
 function NoMatch() {
 
   return (
-    <Container>
-      <h1> NoMatch PAGE </h1>
-    </Container>
+    <div className="background-image">
+      <h1 className="title-text">404</h1>
+      <h1 className="title-text">Page not found</h1>
+    </div>
   );
 }
 
