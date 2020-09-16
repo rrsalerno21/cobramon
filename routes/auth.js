@@ -39,9 +39,9 @@ router.post("/api/signup", async (req, res) => {
     //  addUser to socket.io using companyID
 
     // Loop through # of tables to generate QR strings
-    // and create table objects http://localhost:3000/welcome?company_id=12039485739?table_num=table_1
+    // and create table objects http://localhost:3000/welcome/12039485739/1
     for (let i = 1; i <= table_count; i++) {
-      let QR_string = `http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://localhost:3000/welcome/${company_id}/${i}`;
+      let QR_string = `http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://cobramon.herokuapp.com/welcome/${company_id}/${i}`;
       QR_array.push(QR_string);
       let table_obj = {
         company_id: company_id,
