@@ -3,14 +3,6 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
 
-const loginStyle = {
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "column",
-  maxWidth: "20rem",
-  margin: "0 auto",
-};
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +25,9 @@ function Login() {
   };
 
   return (
-    <div style={loginStyle}>
+    <div className="background-image">
+    <h1 className="title-text"> project cobra </h1>
+    <div className="login-form">
       <h1>Login</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
@@ -55,14 +49,12 @@ function Login() {
         <button type="submit">Submit</button>
       </Form>
       <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
+        className="member"
         to="/signup"
       >
-        Not registered? Create an Account
+        Not registered? <span>Create an Account</span>
       </Link>
+    </div>
     </div>
   );
 }

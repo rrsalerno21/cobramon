@@ -13,6 +13,8 @@ function ChatSidebar() {
 
 
   useEffect(() => {
+    setSelectedTableNum(1);
+    
     API.getUser(user.id)
       .then((res) => {
         setTables(res.data.tables
@@ -34,7 +36,6 @@ function ChatSidebar() {
         
       </div>
         {selectedTableNum && <Chat name="server" room={selectedTableNum} />}
-       
     </div>
 
   );
