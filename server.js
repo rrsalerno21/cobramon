@@ -23,7 +23,9 @@ const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect(process.env.MONGO_URI) || "http://localhost:3001/", {
+const uri = "mongodb+srv://wantanapple8662@gmail.com:Ji8HYNeaoj6dEoUn@cobramon.gxk15.mongodb.net/appDB?retryWrites=true&w=majority"; 
+
+mongoose.connect(uri) || "http://localhost:3001/", {
   useNewUrlParser: true, 
   useUnifiedTopology: true
 }
@@ -39,10 +41,6 @@ if (process.env.NODE_ENV !== "production") {
 // Setting up express to use json and set it to req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build")); 
-}
 
 initDb();
 
