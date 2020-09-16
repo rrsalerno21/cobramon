@@ -48,7 +48,6 @@ const CompanyChat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      console.log("updated messages using setMessages");
       setMessages((messages) => [...messages, message]);
     });
 
