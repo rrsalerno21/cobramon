@@ -58,8 +58,8 @@ function App() {
             <Route exact path="/reviews">
               <Reviews />
             </Route>
-            {/* TODO: add back params for welcome /:company_id/:table_num */}
-            <Route path="/welcome">
+           
+            <Route path="/welcome/:company_id/:table_num">
               <Welcome />
             </Route>
             <Route path="/customerchat" exact component={CustomerChat} />
